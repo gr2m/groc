@@ -85,7 +85,10 @@ Utils =
     currSegment = new @Segment
 
     # We only support single line comments for the time being.
-    singleLineMatcher = ///^\s*(#{language.singleLineComment.join('|')})\s?(.*)$///
+    # singleLineMatcher = ///^\s*(#{language.singleLineComment.join('|')})\s?(.*)$///
+
+    # patch: do only use comments without leading whitespace for docs
+    singleLineMatcher = ///^(#{language.singleLineComment.join('|')})\s?(.*)$///
 
     for line in lines
       # Match that line to the language's single line comment syntax.
